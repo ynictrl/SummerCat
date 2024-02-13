@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
 
     [Header("Components")]
     private Rigidbody2D rb2d;
-    public SpriteRenderer sprite;
 
     [Header("Skills")]
     public float speed;

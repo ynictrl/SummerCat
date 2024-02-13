@@ -133,10 +133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEnemy: 0
-  sprite: {fileID: 861774814303517124}
+  GO_sprite: {fileID: 861774814303517124}
   speed: -1.5
   health: 2
+  maxHealth: 2
   damageContact: 1
+  asteroidAnim: 0
   spawnBullet: {fileID: 0}
   fireRate: 0
   onFire: 0

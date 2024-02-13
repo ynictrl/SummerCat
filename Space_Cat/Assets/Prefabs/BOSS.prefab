@@ -49,10 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeEnemy: 2
-  sprite: {fileID: 8069701664715123084}
+  GO_sprite: {fileID: 8069701664715123084}
   speed: 2
   health: 25
+  maxHealth: 25
   damageContact: 2
+  crackSprite: {fileID: 0}
   spawnBullet: {fileID: 1614597087864880685}
   fireRate: 0.45
   onFire: 0

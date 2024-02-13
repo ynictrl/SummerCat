@@ -9,16 +9,18 @@ public class Enemy : MonoBehaviour
 
     [Header("Components")]
     private Rigidbody2D rb2d;
-    public GameObject sprite;
+    public GameObject GO_sprite;
 
     [Header("Skills")]
     public float speed;
     public float health;
+    public float maxHealth;
     public float damageContact;
 
-    //[Header("Asteroid")]
+    [Header("Animation")]
     //public float speedRotation;
-    //public GameObject sprite;
+    public int numAnim; // 0 normar, 1 crack, 2 destroyed
+    public bool boolAnim; //hit
 
     [Header("Shooter")]
     public Transform spawnBullet;
@@ -41,12 +43,22 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        
+        if(health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+        
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, .5f);
+            onFire =  false;
+            GetComponent<CircleCollider2D>().enabled = false;
         }
+
+        Anim();
 
         switch (typeEnemy)
         {
@@ -63,11 +75,13 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Hitting()//tomando o tiro
     {
-        sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f);
+        GO_sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f);
         GetComponent<CircleCollider2D>().enabled = false;
+        boolAnim = true; //hitshooter
         yield return new WaitForSeconds(0.1f);
-        sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+        GO_sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
         GetComponent<CircleCollider2D>().enabled = true;
+        boolAnim = false;
     }
 
     public void Hit(float dmg)//levndo dano
@@ -140,10 +154,49 @@ public class Enemy : MonoBehaviour
         }  
     }
 
-    /*public void RotationAsteroid()
+    public void Anim()
     {
-        //Transform target = sprite.gameObject.transform;
-        transform.RotateAround(this.transform.position, Vector3.forward, speedRotation * Time.deltaTime);
-    }*/
-                
+        switch (typeEnemy)
+        {
+            case 0:
+                //rotação do asteroid
+                GO_sprite.transform.RotateAround(GO_sprite.transform.position, Vector3.forward, 99 * Time.deltaTime);
+
+                GetComponent<Animator>().SetInteger("transition", numAnim);
+
+                if((health <= (maxHealth/2)) && (health > 0))//rachadura
+                {
+                    numAnim = 1;
+                }
+                if(health <= 0) //destruido
+                {
+                    numAnim = 2;
+                }
+
+            break;
+            case 1: 
+
+                Vector3 targetPos = player.transform.position;
+                Vector2 direction = new Vector2(targetPos.x  - GO_sprite.transform.position.x, targetPos.y - GO_sprite.transform.position.y);
+
+                GetComponent<Animator>().SetInteger("transition", numAnim);
+                GetComponent<Animator>().SetBool("hit", boolAnim);
+                //quando acima de player true
+                if(health > 0)
+                {
+                    if(this.transform.position.y >= player.transform.position.y)
+                    {
+                        numAnim = 0;
+                        GO_sprite.transform.up = direction * -1;
+                    }else{
+                        numAnim = 1;
+                        GO_sprite.transform.up = direction;
+                    }
+                }else{
+                    numAnim = 2;
+                }
+
+            break;
+        }    
+    }             
 }

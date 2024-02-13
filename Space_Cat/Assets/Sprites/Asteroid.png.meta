@@ -108,12 +108,12 @@ TextureImporter:
       name: Asteroid_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 23
+        x: 10
+        y: 34
         width: 21
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,8 +129,50 @@ TextureImporter:
       name: Asteroid_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 23
+        x: 34
+        y: 34
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96325bf065b9d114fa65c2e7a2669f7c
+      internalID: -1001693246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid_2
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 12
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94a3ec979463cf43ac79a1e937e8b3b
+      internalID: -1960350446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asteroid_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 12
         width: 21
         height: 18
       alignment: 0
@@ -140,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96325bf065b9d114fa65c2e7a2669f7c
-      internalID: -1001693246
+      spriteID: c2f9ec81053b58f4f82fb14314f61351
+      internalID: -103759210
       vertices: []
       indices: 
       edges: []
@@ -159,6 +201,8 @@ TextureImporter:
     nameFileIdTable:
       Asteroid_0: -1438394170
       Asteroid_1: -1001693246
+      Asteroid_2: 1660741768
+      Asteroid_3: -103759210
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
