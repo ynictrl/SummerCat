@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public int typeItem; //0-fish, 1-life
+    public int typeItem; //0-fish, 1-lif
     public float speed;
     public static int saveCoin;
 
