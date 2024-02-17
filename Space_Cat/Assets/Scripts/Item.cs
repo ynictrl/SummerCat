@@ -8,6 +8,9 @@ public class Item : MonoBehaviour
     public float speed;
     public static int saveCoin;
 
+    public GameObject GO_sprite;
+    public GameObject collected;
+
     GameObject player;
 
     // Start is called before the first frame update
@@ -36,11 +39,12 @@ public class Item : MonoBehaviour
             //other.gameObject.GetComponent<Player>().Hit(damageContact);
             switch (typeItem)
             {
-                case 0: Control.TakeCoin(); break;
+                case 0: Control.TakeCoin(); player.GetComponent<Player>().UpdateRage(+2); break;
                 case 1: player.GetComponent<Player>().Heal(4); break;
             }
-            
-            Destroy(gameObject);
+            GO_sprite.SetActive(false);
+            collected.SetActive(true);
+            Destroy(gameObject, .5f);
         }
     }
 }

@@ -18,7 +18,15 @@ public class Player : MonoBehaviour
     float nextFire;
     public bool isFire;
 
-    [Header("Rage")]
+    [Header("Health")]
+    public Transform healthBar;
+    public GameObject healthBarObject;
+    Vector3 healthBarScale;
+    float healthPorcent;
+    public float healthCurrent;
+    public float healthMax;
+
+    [Header("Rage_Skill")]
 
     public bool onRage = true;
     public bool isRage;//habilidade de rajada
@@ -27,13 +35,13 @@ public class Player : MonoBehaviour
     public int priceRage;//preço da habilidade
     public float fireRateRage;
 
-    [Header("Health")]
-    public Transform healthBar;
-    public GameObject healthBarObject;
-    Vector3 healthBarScale;
-    float healthPorcent;
-    public float healthCurrent;
-    public float healthMax;
+    [Header("Rage_Bar")]
+    public Transform rageBar;
+    public GameObject rageBarObject;
+    Vector3 rageBarScale;
+    float ragePorcent;
+    public float rageCurrent;
+    public float rageMax;
 
     // Start is called before the first frame update
     void Start()
@@ -43,27 +51,39 @@ public class Player : MonoBehaviour
         //barra de vida
         healthBarScale = healthBar.localScale;
         healthPorcent = healthBarScale.x / healthMax;
+        UpdateHealthBar();
+
+        //barra de rage
+        rageBarScale = rageBar.localScale;
+        ragePorcent = rageBarScale.x / rageMax;
+        UpdateRageBar();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-
-        if(Time.time > nextFire)
+        if(!Control.isPaused)
         {
-            Fire();
-        }
+            Move();
 
-        if(healthCurrent <= 0)//gameover
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
+            if(Time.time > nextFire)
+            {
+                Fire();
+            }
 
-        if(Input.GetButtonDown("Jump") && !isRage && Control.coins >= priceRage && onRage)
-        {
-            Control.coins -= priceRage;
-            StartCoroutine(Raging());
+            if(healthCurrent <= 0)//gameover
+            {
+                SceneManager.LoadScene("SampleScene");
+                //Invoke("Realoadlevel", 3f);
+            }
+
+            if(Input.GetButtonDown("Jump") && !isRage && rageCurrent >= rageMax && onRage)
+            {
+                //Control.coins -= priceRage;
+                rageCurrent = 0;
+                UpdateRageBar();
+                StartCoroutine(Raging());
+            }
         }
     }
 
@@ -83,6 +103,32 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void UpdateHealth(float value)//atualizando vida
+    {
+        healthCurrent += value;
+        UpdateHealthBar();
+    }
+    public void UpdateRageBar()//atualização da barra de rage
+    {
+        rageBarScale.x = ragePorcent * rageCurrent;
+        rageBar.localScale = rageBarScale;
+
+        if(rageBar.localScale.x < 0)
+        {
+            rageBar.localScale = new Vector3(0, 5f, 1f);
+        }
+        if(rageCurrent >= rageMax)
+        {
+            rageCurrent = rageMax;
+            rageBar.localScale = new Vector3(2f, 5f, 1f);
+        }
+    }
+
+    public void UpdateRage(float value)//atualizando rage
+    {
+        rageCurrent += value;
+        UpdateRageBar();
+    }
     public void Move()//movimentação
     {
         float moviment_x = Input.GetAxisRaw("Horizontal");
@@ -109,27 +155,15 @@ public class Player : MonoBehaviour
         onRage = true;
     }
 
-    /**IEnumerator FireBreak()
-    {   
-        onFire = false;
-        isFire = true;      
-        //slow = true;
-        yield return new WaitForSeconds (fireRate);
-        isFire = false; 
-        onFire = true;
-    }*/
-
     public void Heal(float cure)//levando dano
     {
-        healthCurrent += cure;
-        UpdateHealthBar();
+        UpdateHealth(cure);
         //healthBarObject.SetActive(true);
     }
 
     public void Hit(float dmg)//levando dano
     {
-        healthCurrent -= dmg;
-        UpdateHealthBar();
+        UpdateHealth(-dmg);
         //healthBarObject.SetActive(true);
         StartCoroutine(Hitting());
     }

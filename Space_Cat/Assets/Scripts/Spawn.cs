@@ -9,9 +9,9 @@ public class Spawn : MonoBehaviour
     public float timeSpw;
     public float minTimeSpw;
     public float maxTimeSpw;
-    public bool isSpw = true;
+    public bool isSpw; // start Game
 
-    public bool isSpwBoss;
+    public bool spwBoss;
     public bool onBoss;
     public Transform wayBoss;
 
@@ -66,13 +66,12 @@ public class Spawn : MonoBehaviour
             // boss
             case 5: 
                 isSpw = false;
-                if(isSpwBoss && Control.seconds >= 10f)
+                if(spwBoss && Control.seconds >= 10f)
                 {
                     SpawnBoss();
                 } 
             break;
         } 
-
     }
 
     IEnumerator SpawnerEnemy(int i)
@@ -95,7 +94,6 @@ public class Spawn : MonoBehaviour
                 case 5: cloneObj.GetComponent<Enemy>().speed = -4.0f; isSpw = false; break;
             }       
         }
-        
     }
 
     IEnumerator SpawnerItem(int i)
@@ -117,7 +115,6 @@ public class Spawn : MonoBehaviour
                 case 5: cloneObj.GetComponent<Item>().speed = -3.5f; isSpw = false; break;
             } 
         }
-         
     }
 
     void SpawnBoss() //boss indo até o ponto

@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -108,8 +120,8 @@ TextureImporter:
       name: Cat_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 45
+        x: 27
+        y: 77
         width: 17
         height: 18
       alignment: 0
@@ -129,8 +141,8 @@ TextureImporter:
       name: Cat_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 45
+        x: 46
+        y: 77
         width: 17
         height: 18
       alignment: 0
@@ -150,8 +162,8 @@ TextureImporter:
       name: Cat_2
       rect:
         serializedVersion: 2
-        x: 14
-        y: 23
+        x: 65
+        y: 77
         width: 17
         height: 19
       alignment: 0
@@ -171,8 +183,8 @@ TextureImporter:
       name: Cat_3
       rect:
         serializedVersion: 2
-        x: 33
-        y: 23
+        x: 84
+        y: 77
         width: 17
         height: 19
       alignment: 0
@@ -192,8 +204,8 @@ TextureImporter:
       name: Cat_4
       rect:
         serializedVersion: 2
-        x: 14
-        y: 1
+        x: 27
+        y: 54
         width: 17
         height: 19
       alignment: 0
@@ -213,8 +225,8 @@ TextureImporter:
       name: Cat_5
       rect:
         serializedVersion: 2
-        x: 33
-        y: 1
+        x: 46
+        y: 54
         width: 17
         height: 19
       alignment: 0
@@ -226,6 +238,48 @@ TextureImporter:
       bones: []
       spriteID: c98c775705342c847aefd3f44c0b431a
       internalID: 1657086315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat_6
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 54
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8033af76e38a78248be3d3b91d5f9eb2
+      internalID: 1363702655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat_7
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 54
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa45726a7b57a5b4b8fd0e11d1029ddd
+      internalID: -1128206434
       vertices: []
       indices: 
       edges: []
@@ -247,6 +301,8 @@ TextureImporter:
       Cat_3: 336372780
       Cat_4: -439376195
       Cat_5: 1657086315
+      Cat_6: 1363702655
+      Cat_7: -1128206434
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

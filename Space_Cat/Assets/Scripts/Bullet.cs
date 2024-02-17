@@ -8,7 +8,9 @@ public class Bullet : MonoBehaviour
     public bool enemyBullet;
 
     [Header("Components")]
+    private GameObject player;
     private Rigidbody2D rb2d;
+    public GameObject GO_sprite;
 
     [Header("Skills")]
     public float speed;
@@ -19,6 +21,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -34,6 +37,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, timeDestroy);
     }
 
+    void DeadBullet() // quando bullet colidir em um objeto
+    {
+        GetComponent<CircleCollider2D>().enabled = false;
+        GO_sprite.SetActive(false);
+        Destroy(gameObject, .5f);
+    }
+
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(!enemyBullet)
@@ -43,7 +53,8 @@ public class Bullet : MonoBehaviour
             if(other.gameObject.tag == "Enemy") 
             {
                 other.gameObject.GetComponent<Enemy>().Hit(damage);
-                Destroy(gameObject);
+                player.GetComponent<Player>().UpdateRage(+0.25f);
+                DeadBullet();
             }
   
         }else
@@ -53,14 +64,14 @@ public class Bullet : MonoBehaviour
             if(other.gameObject.tag == "Player") 
             {
                 other.gameObject.GetComponent<Player>().Hit(damage);
-                Destroy(gameObject);
+                DeadBullet();
             }
         }
 
         // tocando na parede
         if(other.gameObject.tag == "Wall") 
         {
-            Destroy(gameObject, 0.25f);
+            DeadBullet();
         }       
     }
 }
