@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public float fireRate;
     public float fireRateDefault;
     float nextFire;
+    public bool onFire;
     public bool isFire;
 
     [Header("Health")]
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour
         {
             Move();
 
-            if(Time.time > nextFire)
+            if(Time.time > nextFire && onFire)
             {
                 Fire();
             }

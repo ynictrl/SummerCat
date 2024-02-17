@@ -69,7 +69,7 @@ public class Spawn : MonoBehaviour
                 if(spwBoss && Control.seconds >= 10f)
                 {
                     SpawnBoss();
-                } 
+                }
             break;
         } 
     }
@@ -113,7 +113,7 @@ public class Spawn : MonoBehaviour
                 case 3: cloneObj.GetComponent<Item>().speed = -3.0f; break;
                 case 4: cloneObj.GetComponent<Item>().speed = -3.5f; break;
                 case 5: cloneObj.GetComponent<Item>().speed = -3.5f; isSpw = false; break;
-            } 
+            }
         }
     }
 

@@ -53,9 +53,14 @@ public class Enemy : MonoBehaviour
         
         if(health <= 0)
         {
+            if(typeEnemy == 2)//boss
+            {
+                Control.youWin = true;
+            }
+
             Destroy(gameObject, .5f);
             onFire =  false;
-            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<CircleCollider2D>().enabled = false;    
         }
 
         Anim();

@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Control : MonoBehaviour
 {
+    [Header("Component")]
+    public GameObject player;
 
     [Header("Time")]
     public Text timeText;
@@ -12,6 +15,7 @@ public class Control : MonoBehaviour
     public static float minutes;
 
     public static bool isPaused = true;
+    public static bool youWin;
 
     [Header("Coin")]
     public Text coinText;
@@ -22,12 +26,17 @@ public class Control : MonoBehaviour
 
     [Header("Buttons")]
     public GameObject buttonStart;
+    public GameObject buttonYouWin;
 
     // Start is called before the first frame update
     void Start()
     {
+        youWin = false;
+
         seconds = 0;
         minutes = 0;
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -35,6 +44,12 @@ public class Control : MonoBehaviour
     {
         Timing();
         coinText.text = coins.ToString("00");
+
+        if(youWin)
+        {
+            buttonYouWin.SetActive(true);
+            isPaused = true;
+        }
     }
 
     void Timing()
@@ -67,6 +82,11 @@ public class Control : MonoBehaviour
         }
         buttonStart.SetActive(false);
         isPaused = false;
+        player.GetComponent<Player>().onFire = true;
     }
-   
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 }
