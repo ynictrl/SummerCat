@@ -13,5 +13,5 @@ Jogo de navinha de gatos.
 
 ## Como jogar
 
-- Baixar executável: https://ynictrl.github.io/SummerCat/
-- Jogo webGL: https://github.com/ynictrl/SummerCat/blob/main/Build.rar
+- Jogo webGL: https://ynictrl.github.io/SummerCat/
+- Baixar jogo: https://github.com/ynictrl/SummerCat/blob/main/Build.rar
