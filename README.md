@@ -6,7 +6,12 @@ Jogo de navinha de gatos.
 - Um projeto simples onde abranjo minhas experiências de desenvolvimento.
 - A ideia é fazer desse jogo um portifólio para meus conhecimentos c# e unity.
 
+## Controles
+
+- Movimentação: Setas ou wasd.
+- Especial: Espaço (quando a barra estiver cheia).
+
 ## Como jogar
 
-- Baixar executável:
-- Jogo webGL: 
+- Baixar executável: https://ynictrl.github.io/SummerCat/
+- Jogo webGL: https://github.com/ynictrl/SummerCat/blob/main/Build.rar
