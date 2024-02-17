@@ -9,4 +9,4 @@ Jogo de navinha de gatos.
 ## Como jogar
 
 - Baixar executável:
-- Jogo webGL:
+- Jogo webGL: 
