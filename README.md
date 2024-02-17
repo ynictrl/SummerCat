@@ -9,4 +9,4 @@ Jogo de navinha de gatos.
 ## Como jogar
 
 - Baixar executável:
-- Jogo webGL:https://github.com/ynictrl/SummerCat/tree/main/Space_Cat/WebBuild
+- Jogo webGL: 
