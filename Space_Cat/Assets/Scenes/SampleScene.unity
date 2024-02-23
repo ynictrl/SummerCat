@@ -7009,6 +7009,7 @@ MonoBehaviour:
   sprite: {fileID: 572459618}
   spawnBullet: {fileID: 2052871214}
   bulletObject: {fileID: 8466785658835518230, guid: 893e1cff7900d39458b6f231197a5989, type: 3}
+  numAnim: 0
   speed: 4
   fireRate: 1
   fireRateDefault: 1

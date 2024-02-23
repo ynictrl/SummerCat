@@ -432,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: 0
   GO_sprite: {fileID: 1574868582370303482}
-  speed: 5
+  speed: 6
   timeDestroy: 2
   damage: 1
 --- !u!50 &-3355624115239912774

@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     public Transform spawnBullet;
     public GameObject bulletObject;
 
+    [Header("Animation")]
+    public int numAnim; // 0 idle, 1 hit
+
     [Header("Skills")]
     public float speed;
     public float fireRate;
@@ -67,6 +70,7 @@ public class Player : MonoBehaviour
         {
             speed = 4.5f;
             Move();
+            Anim();
 
             if(Time.time > nextFire && onFire)
             {
@@ -174,11 +178,17 @@ public class Player : MonoBehaviour
 
     IEnumerator Hitting()//tomando o tiro
     {
-        sprite.color = new Color(1f, 0.365655f, 0.365655f);
+        numAnim = 1;
         GetComponent<CapsuleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        sprite.color = new Color(0.9258013f, 0.9339623f, 0.365655f);
+        yield return new WaitForSeconds(0.1f);
+        numAnim = 0;
+        yield return new WaitForSeconds(0.1f);
         GetComponent<CapsuleCollider2D>().enabled = true;
+    }
+
+    public void Anim()
+    {
+        GetComponent<Animator>().SetInteger("transition", numAnim);
     }
 
 }
