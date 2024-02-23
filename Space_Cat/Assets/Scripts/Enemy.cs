@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     float nextFire;
     public bool onFire;
     public GameObject bulletObject;
+    public float speedBullet;
 
     [Header("Boss")]
     public Transform wb;
@@ -147,7 +148,7 @@ public class Enemy : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             GameObject cloneBullet = Instantiate(bulletObject, spawnBullet.position, spawnBullet.rotation);
-            //cloneBullet.GetComponent<Bullet>().speed = 5f;
+            cloneBullet.GetComponent<Bullet>().speed = speedBullet;
         }
     }
 

@@ -86,12 +86,31 @@ public class Spawn : MonoBehaviour
             //cada minuto que passa os inimigos ganham velocidade
             switch (Control.minutes)
             {
-                case 0: cloneObj.GetComponent<Enemy>().speed = -2.0f; break;
-                case 1: cloneObj.GetComponent<Enemy>().speed = -2.5f; break;  
-                case 2: cloneObj.GetComponent<Enemy>().speed = -3.0f; break; 
-                case 3: cloneObj.GetComponent<Enemy>().speed = -3.5f; break; 
-                case 4: cloneObj.GetComponent<Enemy>().speed = -4.0f; break;
-                case 5: cloneObj.GetComponent<Enemy>().speed = -4.0f; isSpw = false; break;
+                case 0: 
+                    cloneObj.GetComponent<Enemy>().speed = -2.0f; 
+                    cloneObj.GetComponent<Enemy>().speedBullet = 4.5f;
+                break;
+                case 1: 
+                    cloneObj.GetComponent<Enemy>().speed = -2.5f; 
+                    cloneObj.GetComponent<Enemy>().speedBullet = 5f;
+                break;  
+                case 2: 
+                    cloneObj.GetComponent<Enemy>().speed = -3.0f; 
+                    cloneObj.GetComponent<Enemy>().speedBullet = 5.5f;
+                break; 
+                case 3: 
+                    cloneObj.GetComponent<Enemy>().speed = -3.5f; 
+                    cloneObj.GetComponent<Enemy>().speedBullet = 6f;
+                break; 
+                case 4: 
+                    cloneObj.GetComponent<Enemy>().speed = -4.0f; 
+                    cloneObj.GetComponent<Enemy>().speedBullet = 6.5f;
+                break;
+                case 5: 
+                    cloneObj.GetComponent<Enemy>().speed = -4.0f; 
+                    cloneObj.GetComponent<Enemy>().speedBullet = 5f;//boss
+                    isSpw = false; 
+                break;
             }       
         }
     }

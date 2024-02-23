@@ -60,6 +60,7 @@ MonoBehaviour:
   fireRate: 0.75
   onFire: 0
   bulletObject: {fileID: 8643722516260998530, guid: ba5609aed39bbeb4baf2929ff4d585f8, type: 3}
+  speedBullet: 5
   wb: {fileID: 0}
 --- !u!50 &1264176320311997076
 Rigidbody2D:

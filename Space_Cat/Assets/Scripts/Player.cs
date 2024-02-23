@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
     {
         if(!Control.isPaused)
         {
+            speed = 5;
             Move();
 
             if(Time.time > nextFire && onFire)
@@ -85,6 +86,8 @@ public class Player : MonoBehaviour
                 UpdateRageBar();
                 StartCoroutine(Raging());
             }
+        }else{
+            speed = 0;
         }
     }
 
