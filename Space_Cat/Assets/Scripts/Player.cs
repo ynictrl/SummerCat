@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
     {
         if(!Control.isPaused)
         {
-            speed = 5;
+            speed = 4.5f;
             Move();
 
             if(Time.time > nextFire && onFire)

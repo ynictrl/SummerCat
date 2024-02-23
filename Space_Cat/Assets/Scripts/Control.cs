@@ -16,6 +16,7 @@ public class Control : MonoBehaviour
 
     public static bool isPaused = true;
     public static bool youWin;
+    public GameObject pauseMenu;
 
     [Header("Coin")]
     public Text coinText;
@@ -49,6 +50,15 @@ public class Control : MonoBehaviour
         {
             buttonYouWin.SetActive(true);
             isPaused = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isPaused){
+                ResumeGame();
+            }else{
+                PauseGame();
+            }
         }
     }
 
@@ -88,5 +98,19 @@ public class Control : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);         
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 }
