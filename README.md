@@ -1,5 +1,5 @@
 ## SummerCat
-Jogo de navinha de gatos.
+Jogo de simples de nave com gatos.
 
 ## Sobre
 - Jogo shoot'em up com temática de animais.
